@@ -13,16 +13,17 @@ set -g @menus_use_cache false
 The prefix `simple_style` indicates that it doesn’t support full style notation like `#[fg=blue,bg=yellow,blink,underline]`. 
 The -H, -s, and -S parameters seem to only support setting fg, bg, and default, but I could be mistaken.
 
-The -T parameter (`@menus_format_title`) is a FORMAT field. Use `#{@menu_name}` to display the menu name, but most formatting options should work here.
+The -T parameter (`@menus_format_title`) is a FORMAT field. Use `#{@menu_name}` to display the menu name. 
+Most formatting options should work here.
 
-In the table below, Param refers to display-menu parameters (see the tmux man page). The default for all of these is `default`.
+In the table below, Param refers to display-menu parameters (see the tmux man page).
 
-Param | variable
-------|----------
--T    | @menus_format_title
--H    | @menus_simple_style_selected
--s    | @menus_simple_style
--S    | @menus_simple_style_border
+Param |           variable           |               Default
+------|------------------------------|-----------------------------------
+-T    | @menus_format_title          | "#[align=centre] #{@menu_name} "
+-H    | @menus_simple_style_selected | default
+-s    | @menus_simple_style          | default
+-S    | @menus_simple_style_border   | default
 
 To maximize styling freedom, these variables are not wrapped in quotes, as tmux scripting has limitations that quickly exhaust available quotes.
 This could be more trouble than it's worth, so let me know if this method isn’t practical. On the upside, it should allow for maximum styling flexibility.
@@ -65,7 +66,7 @@ These overrides are ideal for testing themes and styles. By assigning overrides 
 ## Sample config
 
 ```tmux
-set -g @menus_format_title "'#[align=centre] #[fg=colour34]#{@menu_name}#[default] '"
+set -g @menus_format_title "'#[align=centre,fg=colour34] #{@menu_name} '"
 set -g @menus_simple_style_selected "fg=#ff79c6,bg=colour236"
 set -g @menus_simple_style "fg=colour62"
 set -g @menus_simple_style_border "fg=colour223"
