@@ -2,6 +2,12 @@
 
 This is still experimental, so some variables might change names if it turns out that the current choices don’t make much sense.
 
+Be aware that cashing isnt fully operational in this branch as of yet. It is highly recomended to disable it until this warning is removed
+
+```tmux
+set -g @menus_use_cache false
+```
+
 ## New menu style variables
 
 The prefix `simple_style` indicates that it doesn’t support full style notation like `#[fg=blue,bg=yellow,blink,underline]`. 
