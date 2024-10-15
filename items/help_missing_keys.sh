@@ -11,12 +11,13 @@
 static_content() {
 
     set -- \
-        0.0 M Left "Back to Previous menu <--" "$prev_menu" \
+        0.0 M Home "Back to Main menu     #{@nav_home}" main.sh \
+        0.0 M Left "Back to Previous menu #{@nav_prev}" "$prev_menu" \
         0.0 S \
         0.0 T "-#[nodim]Use this to send keys that might" \
         0.0 T "-#[nodim]not be available with the current" \
         0.0 T "-#[nodim]keyboard settings."
- 
+
     if [ "$FORCE_WHIPTAIL_MENUS" = 1 ]; then
         set -- "$@" \
             0.0 T " " \

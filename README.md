@@ -2,6 +2,7 @@
 
 ![main](https://github.com/user-attachments/assets/a9cd1d01-ede5-414c-a8cf-0c04f857f648)
 
+
 Popup menus to help with managing your environment.
 
 For tmux < 3.0 whiptail will be used, since the tmux feature
@@ -12,9 +13,16 @@ might find slightly redundant are included, easier to remove excess for more
 experienced users, then add more for newbies.
 
 <details>
+<summary>Upcomming feature - styling</summary>
+<br>
+
+
+</details>
+<details>
 <summary>Recent Changes</summary>
 <br>
 
+- Menu Styling has arrived - Checkout branch `themeable`  to take a look
 - Rewrote cache handling for better optimization
 - Moved Toggle status line -> Advanced in order to shrink main menu
 - Removed pointers to default key-bindings, instead using shortcuts that
@@ -347,7 +355,7 @@ static_content() {
   #   'set -- "$@" \' should be used when appending parameters
 
   set -- \
-    0.0 M Left "Back to Main menu  <==" "main.sh" \
+    0.0 M Left "Back to Main menu  #{@nav_home}" "main.sh" \
     0.0 S \
     0.0 T "Example of a line extending action" \
     2.0 C "r" "Rename this session" "command-prompt -I '#S' \

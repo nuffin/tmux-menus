@@ -90,6 +90,15 @@ tmux_get_defaults() {
     default_trigger_key=\\
     default_no_prefix=No
 
+    default_simple_style_selected="default"
+    default_simple_style="default"
+    default_simple_style_border="default"
+    default_format_title="'#[align=centre]  #{@menu_name} '"
+
+    default_nav_next="-->"
+    default_nav_prev="<--"
+    default_nav_home="<=="
+
     if tmux_vers_check 3.2; then
         default_location_x=C
         default_location_y=C
@@ -186,6 +195,22 @@ tmux_get_plugin_options() { # cache references
         # indicate that cache should not be used
         touch "$f_cache_not_used_hint"
     fi
+
+    cfg_simple_style_selected="$(tmux_get_option "@menus_simple_style_selected" \
+        "$default_simple_style_selected")"
+    cfg_simple_style="$(tmux_get_option "@menus_simple_style" \
+        "$default_simple_style")"
+    cfg_simple_style_border="$(tmux_get_option "@menus_simple_style_border" \
+        "$default_simple_style_border")"
+    cfg_format_title="$(tmux_get_option "@menus_format_title" \
+        "$default_format_title")"
+
+    cfg_nav_next="$(tmux_get_option "@menus_nav_next" \
+        "$default_nav_next")"
+    cfg_nav_prev="$(tmux_get_option "@menus_nav_prev" \
+        "$default_nav_prev")"
+    cfg_nav_home="$(tmux_get_option "@menus_nav_home" \
+        "$default_nav_home")"
 
     cfg_mnu_loc_x="$(tmux_get_option "@menus_location_x" \
         "$default_location_x")"

@@ -79,8 +79,13 @@ starting_with_dash() {
 #
 #  tmux 3.0+ built in menu handling using display-menu
 #
+
 tmux_dialog_prefix() {
-    menu_items="tmux_error_handler display-menu -T \"#[align=centre] $menu_name \" \
+    menu_items="tmux_error_handler display-menu  \
+        -H $cfg_simple_style_selected \
+        -s $cfg_simple_style \
+        -S $cfg_simple_style_border \
+        -T $cfg_format_title \
         -x '$cfg_mnu_loc_x' -y '$cfg_mnu_loc_y'"
 }
 
@@ -272,6 +277,11 @@ menu_parse() {
 
     [ "$menu_idx" -eq 1 ] && {
         [ -z "$menu_name" ] && error_msg "menu_parse() - menu_name not defined"
+        $TMUX_BIN set-option @menu_name "$menu_name"
+        $TMUX_BIN set-option @nav_next "$cfg_nav_next"
+        $TMUX_BIN set-option @nav_prev "$cfg_nav_prev"
+        $TMUX_BIN set-option @nav_home "$cfg_nav_home"
+
         # set prefix for item 1
         if [ "$FORCE_WHIPTAIL_MENUS" = 1 ]; then
             alt_dialog_prefix
@@ -689,6 +699,17 @@ uncached_item_splitter="||||"
 #  cache handling.
 #
 menu_debug="" # Set to 1 to use echo 2 to use log_it
+
+#
+#  Per menu overrides of configuration
+#
+[ -n "$override_title" ] && cfg_format_title="$override_title"
+[ -n "$override_selected" ] && cfg_simple_style_selected="$override_selected"
+[ -n "$override_border" ] && cfg_simple_style_border="$override_border"
+[ -n "$override_style" ] && cfg_simple_style="$override_style"
+[ -n "$override_next" ] && cfg_nav_next="$override_next"
+[ -n "$override_prev" ] && cfg_nav_prev="$override_prev"
+[ -n "$override_home" ] && cfg_nav_home="$override_home"
 
 handle_menu
 

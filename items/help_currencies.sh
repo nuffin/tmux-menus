@@ -11,13 +11,14 @@
 static_content() {
 
     set -- \
-        0.0 M Left "Back to Previous menu <--" "$prev_menu" \
+        0.0 M Home "Back to Main menu     #{@nav_home}" main.sh \
+        0.0 M Left "Back to Previous menu #{@nav_prev}" "$prev_menu" \
         0.0 S
 
     set -- "$@" \
-    0.0 T "-#[nodim]Even if due to font or screen settings," \
-    0.0 T "-#[nodim]the symbol isnt visible, this should" \
-    0.0 T "-#[nodim]still be able to paste it in." 
+        0.0 T "-#[nodim]Even if due to font or screen settings," \
+        0.0 T "-#[nodim]the symbol isnt visible, this should" \
+        0.0 T "-#[nodim]still be able to paste it in."
 
     if [ "$FORCE_WHIPTAIL_MENUS" = 1 ]; then
         set -- "$@" \

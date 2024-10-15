@@ -10,7 +10,7 @@
 
 nav_add() {
     [ -z "$nav" ] && nav="\"\""
-    nav="$nav \"$1  -->\" '$2' \"$open_menu/extras/mullvad_country.sh $3\""
+    nav="$nav \"$1  #{@nav_next}\" '$2' \"$open_menu/extras/mullvad_country.sh $3\""
 }
 
 #===============================================================

@@ -36,7 +36,7 @@ static_content() {
     # set_coordinates="$*"
 
     set -- "$@" \
-        0.0 M Left "Back to Previous menu <--" advanced.sh \
+        0.0 M Left "Back to Previous menu #{@nav_prev}" advanced.sh \
         0.0 S \
         0.0 C c "Center" "$change_location  C  $reload_in_runshell'"
     # 0.0 E r "win Right edge" "$change_location  R  $reload_in_runshell'" \
