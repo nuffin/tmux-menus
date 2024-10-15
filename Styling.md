@@ -1,3 +1,6 @@
+![Slightly Catppuccin Frappe inspired](https://github.com/user-attachments/assets/44e653ba-71f6-4c70-8c76-474151c53cb4)
+![many colors](https://github.com/user-attachments/assets/9ff350df-bea1-4577-81e3-a927ed5e5560)
+
 # Layout Introduction
 
 This is still experimental, so some variables might change names if it turns out that the current choices don’t make much sense.
