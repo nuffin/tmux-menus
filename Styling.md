@@ -11,7 +11,6 @@ set -g @menus_use_cache false
 ## New menu style variables
 
 The prefix `simple_style` indicates that it doesn’t support full style notation like `#[fg=blue,bg=yellow,blink,underline]`. 
-These variables only allow for fg, bg, and default.
 The -H, -s, and -S parameters seem to only support setting fg, bg, and default, but I could be mistaken.
 
 The -T parameter (`@menus_format_title`) is a FORMAT field. Use `#{@menu_name}` to display the menu name, but most formatting options should work here.
