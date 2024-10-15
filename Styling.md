@@ -1,7 +1,6 @@
 # Layout Introduction
 
 This is still experimental, so some variables might change names if it turns out that the current choices don’t make much sense.
-New
 
 ## New menu style variables
 
