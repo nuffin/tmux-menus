@@ -73,7 +73,7 @@ assign overrides in a menu and save it. Since the menu has changed the
 cache (if it is used) is invalidated, and the menu is regenerated,
 so the new style will immeditally be used the next tiem the menu is displayed.
 
-- insert screenshot
+<sample of dynamic changes using overrides>(https://github.com/user-attachments/assets/6b595226-4183-458f-8540-68d84a0d28fc)
 
 ## Estetic disclaimer
 
