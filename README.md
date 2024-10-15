@@ -1,6 +1,12 @@
 # Tmux-Menus
 
-![main](https://github.com/user-attachments/assets/a9cd1d01-ede5-414c-a8cf-0c04f857f648)
+New featue - Styling of menus - Se [Layout](Styling.md)
+
+![main](https://github.com/user-attachments/assets/2eede00c-ffee-4f86-9ebf-a07eaf34460c)
+
+
+
+
 
 
 Popup menus to help with managing your environment.
@@ -12,12 +18,6 @@ Not too hard to adapt to fit your needs. Items that some
 might find slightly redundant are included, easier to remove excess for more
 experienced users, then add more for newbies.
 
-<details>
-<summary>Upcomming feature - styling</summary>
-<br>
-
-
-</details>
 <details>
 <summary>Recent Changes</summary>
 <br>
