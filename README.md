@@ -1,6 +1,6 @@
 # Tmux-Menus
 
-New featue - Styling of menus - Se [Layout](Styling.md)
+New featue - Styling of menus - Se [Styling](Styling.md)
 
 ![main](https://github.com/user-attachments/assets/2eede00c-ffee-4f86-9ebf-a07eaf34460c)
 
