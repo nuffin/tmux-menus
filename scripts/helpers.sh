@@ -344,8 +344,9 @@ else
 fi
 
 if ! tmux_vers_check 3.0; then
-    min_tmux_vers="1.7"
+    min_tmux_vers="1.8"
     if ! tmux_vers_check "$min_tmux_vers"; then
+        # @variables are not usable prior to 1.8
         error_msg "need at least tmux $min_tmux_vers to work!"
     fi
     FORCE_WHIPTAIL_MENUS=1
