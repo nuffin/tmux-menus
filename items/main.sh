@@ -16,7 +16,7 @@ static_content() {
     #  Menu items definition
     set -- \
         1.8 M N "Navigate & Search #{@nav_next}" nav_search.sh \
-        1.7 M P "Handling Pane     #{@nav_next}" panes.sh \
+        0.0 M P "Handling Pane     #{@nav_next}" panes.sh \
         0.0 M W "Handling Window   #{@nav_next}" windows.sh \
         0.0 M S "Handling Sessions #{@nav_next}" sessions.sh \
         1.8 M B "Paste buffers     #{@nav_next}" paste_buffers.sh \
