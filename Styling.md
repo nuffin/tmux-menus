@@ -8,6 +8,7 @@ and when i uploaded the small one same size as the large one, now the larger
 got bigger again, I truly should not focus on layout :)
 
 ## Introduction
+
 This is still experimental, so some variables might change names if it turns out that the current choices don’t make much sense.
 
 Be aware that cashing isnt fully operational in this branch as of yet. It is highly recomended to disable it until this warning is removed
@@ -18,10 +19,10 @@ set -g @menus_use_cache false
 
 ## New menu style variables
 
-The prefix `simple_style` indicates that it doesn’t support full style notation like `#[fg=blue,bg=yellow,blink,underline]`. 
+The prefix `simple_style` indicates that it doesn’t support full style notation like `#[fg=blue,bg=yellow,blink,underline]`.
 The -H, -s, and -S parameters seem to only support setting fg, bg, and default, but I could be mistaken.
 
-The -T parameter (`@menus_format_title`) is a FORMAT field. Use `#{@menu_name}` to display the menu name. 
+The -T parameter (`@menus_format_title`) is a FORMAT field. Use `#{@menu_name}` to display the menu name.
 Most formatting options should work here.
 
 In the table below, Param refers to display-menu parameters (see the tmux man page).
