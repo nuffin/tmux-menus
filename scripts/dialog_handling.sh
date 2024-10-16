@@ -34,6 +34,28 @@ debug_print() {
     esac
 }
 
+set_menu_env_variables() {
+    #
+    #  Needs to be done for every menu even if caching is done,
+    #  since the cache might refer to tmux variables like menu_name
+    #
+    #  Per menu overrides of configuration
+    #
+    [ -n "$override_title" ] && cfg_format_title="$override_title"
+    [ -n "$override_selected" ] && cfg_simple_style_selected="$override_selected"
+    [ -n "$override_border" ] && cfg_simple_style_border="$override_border"
+    [ -n "$override_style" ] && cfg_simple_style="$override_style"
+    [ -n "$override_next" ] && cfg_nav_next="$override_next"
+    [ -n "$override_prev" ] && cfg_nav_prev="$override_prev"
+    [ -n "$override_home" ] && cfg_nav_home="$override_home"
+
+    [ -z "$menu_name" ] && error_msg "menu_parse() - menu_name not defined"
+    tmux_error_handler set-option @menu_name "$menu_name"
+    tmux_error_handler set-option @nav_next "$cfg_nav_next"
+    tmux_error_handler set-option @nav_prev "$cfg_nav_prev"
+    tmux_error_handler set-option @nav_home "$cfg_nav_home"
+}
+
 ensure_menu_fits_on_screen() {
     #
     #  Since tmux display-menu returns 0 even if it failed to display the
@@ -276,12 +298,6 @@ menu_parse() {
     #
 
     [ "$menu_idx" -eq 1 ] && {
-        [ -z "$menu_name" ] && error_msg "menu_parse() - menu_name not defined"
-        tmux_error_handler set-option @menu_name "$menu_name"
-        tmux_error_handler set-option @nav_next "$cfg_nav_next"
-        tmux_error_handler set-option @nav_prev "$cfg_nav_prev"
-        tmux_error_handler set-option @nav_home "$cfg_nav_home"
-
         # set prefix for item 1
         if [ "$FORCE_WHIPTAIL_MENUS" = 1 ]; then
             alt_dialog_prefix
@@ -621,6 +637,8 @@ handle_menu() {
     #
     dh_t_mnu_processing_start="$(safe_now)"
 
+    set_menu_env_variables
+
     # 1 - Handle static parts, use cache if enabled and available
     if $cfg_use_cache; then
         handle_static_cached
@@ -699,17 +717,6 @@ uncached_item_splitter="||||"
 #  cache handling.
 #
 menu_debug="" # Set to 1 to use echo 2 to use log_it
-
-#
-#  Per menu overrides of configuration
-#
-[ -n "$override_title" ] && cfg_format_title="$override_title"
-[ -n "$override_selected" ] && cfg_simple_style_selected="$override_selected"
-[ -n "$override_border" ] && cfg_simple_style_border="$override_border"
-[ -n "$override_style" ] && cfg_simple_style="$override_style"
-[ -n "$override_next" ] && cfg_nav_next="$override_next"
-[ -n "$override_prev" ] && cfg_nav_prev="$override_prev"
-[ -n "$override_home" ] && cfg_nav_home="$override_home"
 
 handle_menu
 
