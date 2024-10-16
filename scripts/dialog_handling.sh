@@ -277,10 +277,10 @@ menu_parse() {
 
     [ "$menu_idx" -eq 1 ] && {
         [ -z "$menu_name" ] && error_msg "menu_parse() - menu_name not defined"
-        $TMUX_BIN set-option @menu_name "$menu_name"
-        $TMUX_BIN set-option @nav_next "$cfg_nav_next"
-        $TMUX_BIN set-option @nav_prev "$cfg_nav_prev"
-        $TMUX_BIN set-option @nav_home "$cfg_nav_home"
+        tmux_error_handler set-option @menu_name "$menu_name"
+        tmux_error_handler set-option @nav_next "$cfg_nav_next"
+        tmux_error_handler set-option @nav_prev "$cfg_nav_prev"
+        tmux_error_handler set-option @nav_home "$cfg_nav_home"
 
         # set prefix for item 1
         if [ "$FORCE_WHIPTAIL_MENUS" = 1 ]; then
