@@ -56,13 +56,6 @@ set_menu_env_variables() {
     nav_prev="$cfg_nav_prev"
     # shellcheck disable=SC2034
     nav_home="$cfg_nav_home"
-
-    # if [ "$FORCE_WHIPTAIL_MENUS" != 1 ]; then
-    #     # If not using tmux menus, no need to store variables in tmux
-
-    #     tmux_error_handler set-option @menu_name "$menu_name" # TMPL_MENU_NAME
-    #     log_it "><> @menu_name set to $menu_name"
-    # fi
 }
 
 ensure_menu_fits_on_screen() {
@@ -85,7 +78,7 @@ ensure_menu_fits_on_screen() {
 
     # Display time meny was shown
     disp_time="$(echo "$(safe_now) - $dh_t_start" | bc)"
-    log_it "Menu $current_script_no_ext - Display time:  $disp_time"
+    # log_it "Menu $current_script_no_ext - Display time:  $disp_time"
 
     if [ "$(echo "$disp_time < 0.5" | bc)" -eq 1 ]; then
         error_msg "$(relative_path "$f_current_script") Screen might be too small"
@@ -112,11 +105,12 @@ starting_with_dash() {
 #
 
 tmux_dialog_prefix() {
+    _n="$(echo "$cfg_format_title" | sed "s/TMPL_MENU_NAME/$menu_name/g")"
     menu_items="tmux_error_handler display-menu  \
         -H $cfg_simple_style_selected \
         -s $cfg_simple_style \
         -S $cfg_simple_style_border \
-        -T $cfg_format_title \
+        -T $_n \
         -x '$cfg_mnu_loc_x' -y '$cfg_mnu_loc_y'"
 }
 
@@ -305,6 +299,7 @@ menu_parse() {
     #  we first identify all the params used by the different options,
     #  only then can we continue if the min_vers does not match running tmux
     #
+    # log_it "><> mennu_parse()"
 
     [ "$menu_idx" -eq 1 ] && {
         # set prefix for item 1
@@ -461,11 +456,16 @@ menu_parse() {
         esac
     done
 
+    # log_it "><> will perhaps write"
     if $cfg_use_cache; then
         # clear cache (if present)
         log_it "Cashing ${current_script_no_ext}-$menu_idx"
-        echo "$menu_items" >"$f_cache_file" || error_msg "Failed to write to: $f_cache_file"
+
+        echo "$menu_items" >"$f_cache_file" || {
+            error_msg "Failed to write to: $f_cache_file"
+        }
     else
+        # log_it "><> not using cache"
         add_uncached_item
     fi
     unset menu_items
@@ -494,6 +494,7 @@ menu_generate_part() {
     shift # get rid of the idx
 
     f_cache_file="$d_cache_file/$menu_idx"
+    # log_it "><> menu_generate_part($menu_idx) using cache: $f_cache_file"
     menu_parse "$@"
 
     [ "$FORCE_WHIPTAIL_MENUS" = 1 ] && update_wt_actions
@@ -687,6 +688,7 @@ fi
 [ -z "$tmux_vers" ] && . "$D_TM_BASE_PATH"/scripts/helpers.sh
 
 [ -z "$TMUX" ] && error_msg "$plugin_name can only be used inside tmux!"
+[ -z "$menu_name" ] && error_msg "menu_parse() - menu_name not defined"
 
 ! tmux_vers_check 3.0 && FORCE_WHIPTAIL_MENUS=1
 

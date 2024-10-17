@@ -64,7 +64,7 @@ tmux_vers_check() { # cache references
 
 tmux_get_vers() {
     # skip release candidate suffix and similar
-    $TMUX_BIN -V | cut -d ' ' -f 2 | cut -d- -f1
+    tmux_error_handler -V | cut -d ' ' -f 2 | cut -d- -f1
 }
 
 tmux_define_vers_vars() {
@@ -93,7 +93,7 @@ tmux_get_defaults() {
     default_simple_style_selected="default"
     default_simple_style="default"
     default_simple_style_border="default"
-    default_format_title="'#[align=centre]  #{@menu_name} '"
+    default_format_title="'#[align=centre]  TMPL_MENU_NAME '"
 
     default_nav_next="-->"
     default_nav_prev="<--"
@@ -134,6 +134,7 @@ tmux_get_option() {
         return
     }
 
+    # dont use tmux_error_handler here
     if tgo_value="$($TMUX_BIN show-options -gv "$tgo_option" 2>/dev/null)"; then
         #
         #  I havent figured out if it is my asdf builds that have issues
@@ -357,7 +358,7 @@ tmux_error_handler() { # cache references
     #
     the_cmd="$*"
 
-    # log_it "tmux_error_handler($the_cmd)"
+    log_it "tmux_error_handler($1 $2 $3)"
 
     if $cfg_use_cache; then
         d_errors="$d_cache"
