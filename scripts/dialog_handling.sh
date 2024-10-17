@@ -49,11 +49,20 @@ set_menu_env_variables() {
     [ -n "$override_prev" ] && cfg_nav_prev="$override_prev"
     [ -n "$override_home" ] && cfg_nav_home="$override_home"
 
-    [ -z "$menu_name" ] && error_msg "menu_parse() - menu_name not defined"
-    tmux_error_handler set-option @menu_name "$menu_name"
-    tmux_error_handler set-option @nav_next "$cfg_nav_next"
-    tmux_error_handler set-option @nav_prev "$cfg_nav_prev"
-    tmux_error_handler set-option @nav_home "$cfg_nav_home"
+    # allow for having shorter variable names in menus
+    # shellcheck disable=SC2034
+    nav_next="$cfg_nav_next"
+    # shellcheck disable=SC2034
+    nav_prev="$cfg_nav_prev"
+    # shellcheck disable=SC2034
+    nav_home="$cfg_nav_home"
+
+    # if [ "$FORCE_WHIPTAIL_MENUS" != 1 ]; then
+    #     # If not using tmux menus, no need to store variables in tmux
+
+    #     tmux_error_handler set-option @menu_name "$menu_name" # TMPL_MENU_NAME
+    #     log_it "><> @menu_name set to $menu_name"
+    # fi
 }
 
 ensure_menu_fits_on_screen() {

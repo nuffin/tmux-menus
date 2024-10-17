@@ -38,8 +38,8 @@ static_content() {
     [ -z "$(command -v mullvad)" ] && error_msg "mullvad bin not found!"
 
     set -- \
-        0.0 M Home "'Back to Main menu  #{@nav_home}'" "$d_items/main.sh" \
-        0.0 M Left "Back to Extras     #{@nav_prev}" "$d_items/extras.sh" \
+        0.0 M Home "'Back to Main menu  $nav_home'" "$d_items/main.sh" \
+        0.0 M Left "Back to Extras     $nav_prev" "$d_items/extras.sh" \
         0.0 S \
         0.0 C s Status "display '$(mullvad status)' $menu_reload"
 
@@ -47,9 +47,9 @@ static_content() {
 
     set -- \
         0.0 S \
-        0.0 M H 'Help       #{@nav_next}' "$d_items/help.sh $f_current_script"
+        0.0 M H 'Help       $nav_next' "$d_items/help.sh $f_current_script"
 
-    # 0.0 C L "Select Location  #{@nav_next}" "$menu_reload'"
+    # 0.0 C L "Select Location  $nav_next" "$menu_reload'"
 
     menu_generate_part 3 "$@"
 }
