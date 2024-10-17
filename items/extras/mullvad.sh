@@ -47,7 +47,7 @@ static_content() {
 
     set -- \
         0.0 S \
-        0.0 M H 'Help       $nav_next' "$d_items/help.sh $f_current_script"
+        0.0 M H "Help       $nav_next" "$d_items/help.sh $f_current_script"
 
     # 0.0 C L "Select Location  $nav_next" "$menu_reload'"
 
@@ -67,8 +67,3 @@ D_TM_BASE_PATH="$(realpath "$(dirname -- "$(dirname -- "$(dirname -- "$0")")")")
 
 # shellcheck source=scripts/dialog_handling.sh
 . "$D_TM_BASE_PATH"/scripts/dialog_handling.sh
-
-e="$?"
-if [ "$e" -ne 0 ]; then
-    log_it "$current_script exiting [$e]"
-fi
