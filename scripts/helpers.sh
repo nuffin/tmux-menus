@@ -282,11 +282,9 @@ get_config() { # tmux stuff
 plugin_name="tmux-menus"
 
 #
-#  Setting a cfg_log_file here overrides @menus_log_file, should only
-#  be used for debugging early stages of plugin startup. The relevant
-# log_it entries are prefixed with [dbg]. Normally they will not print
-# anything, since when they are run, no log file has been aquired from
-# the tmux env.
+#  Setting a cfg_log_file here will ignore the tmux setting @menus_log_file
+#  This is mostly for debugging early stuff before the settings have
+#  been processed. Should normally be commented out!
 #
 # cfg_log_file="$HOME/tmp/${plugin_name}-dbg.log"
 
@@ -327,7 +325,7 @@ f_current_script="$d_current_script/$current_script"
 
 # shellcheck disable=SC2154
 if [ "$initialize_plugin" = "1" ]; then
-    log_it "[dbg] doing plugin initialization"
+    log_it "Doing plugin initialization"
     cache_validation
     cache_update_params
     #

@@ -220,16 +220,10 @@ tmux_get_plugin_options() { # cache references
     cfg_tmux_conf="$(tmux_get_option "@menus_config_file" \
         "$default_tmux_conf")"
     _f="$(tmux_get_option "@menus_log_file" "$default_log_file")"
-    [ -n "$_f" ] && {
-        #
-        #  If a debug logfile was set early in helpers.sh, and no log_file
-        #  is defined in settings, the debug log file will continue to
-        #  be used, otherwise, from here on the log file defined in tmux conf
-        #  will be used from this point.
-        #
+    [ -z "$cfg_log_file" ] && [ -n "$_f" ] && {
+        #  If a debug logfile has been set, the tmux setting will be ignored.
         cfg_log_file="$_f"
     }
-
     #
     #  Generic plugin setting I use to add Notes to keys that are bound
     #  This makes this key binding show up when doing <prefix> ?
@@ -239,7 +233,6 @@ tmux_get_plugin_options() { # cache references
     #
     if tmux_vers_check 3.1 &&
         normalize_bool_param "@use_bind_key_notes_in_plugins" No; then
-
         cfg_use_notes=true
     else
         cfg_use_notes=false
