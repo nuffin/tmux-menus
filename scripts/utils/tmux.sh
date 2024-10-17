@@ -90,10 +90,10 @@ tmux_get_defaults() {
     default_trigger_key=\\
     default_no_prefix=No
 
-    default_simple_style_selected="default"
-    default_simple_style="default"
-    default_simple_style_border="default"
-    default_format_title="'#[align=centre]  TMPL_MENU_NAME '"
+    default_simple_style_selected=default
+    default_simple_style=default
+    default_simple_style_border=default
+    default_format_title="'#[align=centre]  #{@menu_name} '"
 
     default_nav_next="-->"
     default_nav_prev="<--"
@@ -358,7 +358,7 @@ tmux_error_handler() { # cache references
     #
     the_cmd="$*"
 
-    log_it "tmux_error_handler($1 $2 $3)"
+    # log_it "tmux_error_handler($1 $2 $3)"
 
     if $cfg_use_cache; then
         d_errors="$d_cache"

@@ -105,7 +105,7 @@ starting_with_dash() {
 #
 
 tmux_dialog_prefix() {
-    _n="$(echo "$cfg_format_title" | sed "s/TMPL_MENU_NAME/$menu_name/g")"
+    _n="$(echo "$cfg_format_title" | sed "s/#{@menu_name}/$menu_name/g")"
     menu_items="tmux_error_handler display-menu  \
         -H $cfg_simple_style_selected \
         -s $cfg_simple_style \

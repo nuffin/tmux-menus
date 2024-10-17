@@ -9,13 +9,7 @@ got bigger again, I truly should not focus on layout :)
 
 ## Introduction
 
-This is still experimental, so some variables might change names if it turns out that the current choices don’t make much sense.
-
-Be aware that cashing isnt fully operational in this branch as of yet. It is highly recomended to disable it until this warning is removed
-
-```tmux
-set -g @menus_use_cache false
-```
+This is still in testing, but should be working fine already.
 
 ## New menu style variables
 
@@ -23,7 +17,6 @@ The prefix `simple_style` indicates that it doesn’t support full style notatio
 The -H, -s, and -S parameters seem to only support setting fg, bg, and default, but I could be mistaken.
 
 The -T parameter (`@menus_format_title`) is a FORMAT field. Use `#{@menu_name}` to display the menu name.
-Most formatting options should work here.
 
 In the table below, Param refers to display-menu parameters (see the tmux man page).
 
@@ -41,7 +34,7 @@ All quoting of spaces, etc., is up to the style creator. For example, I prefer s
 Example:
 
 ```tmux
-set -g @menus_format_title "'#[align=centre] #[fg=colour34]#{@menu_name}#[default] '"
+set -g @menus_format_title "'#[align=centre] #[fg=colour34]#{@menu_name} '"
 ```
 
 ## Menu navigaion hints
@@ -80,7 +73,8 @@ Hopefully, those with an eye for design can put this to good use to better integ
 
 ## Sample config
 
-```tmux# fg @thm_surface_0 bg @thm_yellow
+```tmux
+# fg @thm_surface_0 bg @thm_yellow
 set -g @menus_simple_style_selected "fg=#414559,bg=#e5c890"
 set -g @menus_simple_style "bg=#414559"        # @thm_surface_0
 set -g @menus_simple_style_border "bg=#414559" # @thm_surface_0

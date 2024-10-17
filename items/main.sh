@@ -45,8 +45,9 @@ menu_name="Main menu"
 
 # Example of duynamically changing the menu
 
-override_title="'#[align=left] #[fg=colour34]TMPL_MENU_NAME#[default] '"
-override_next="#[fg=colour202]>#[fg=colour220]>#[fg=colour227]>"
+# override_title="'#[align=right] #[fg=white,bg=red]#{@menu_name} '"
+# override_selected="default"
+# override_next="#[fg=colour202]>#[fg=colour220]>#[fg=colour227]>"
 
 #  Full path to tmux-menux plugin
 D_TM_BASE_PATH="$(realpath "$(dirname -- "$(dirname -- "$0")")")"
