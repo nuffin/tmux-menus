@@ -43,11 +43,16 @@ static_content() {
 
 menu_name="Main menu"
 
-# Example of duynamically changing the menu
-
-# override_title="'#[align=right] #[fg=white,bg=red]#{@menu_name} '"
-# override_selected="default"
+#
+# Example of dynamically changing the menu
+#
+# override_title="'#{@menu_name}'" # quote for menu titles with spaces!
+# override_selected="fg=blue,bg=yellow"
+# override_style=""
+# override_border=""
 # override_next="#[fg=colour202]>#[fg=colour220]>#[fg=colour227]>"
+# override_prev=""
+# override_home=""
 
 #  Full path to tmux-menux plugin
 D_TM_BASE_PATH="$(realpath "$(dirname -- "$(dirname -- "$0")")")"
