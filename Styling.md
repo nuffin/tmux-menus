@@ -20,16 +20,18 @@ The -T parameter (`@menus_format_title`) is a FORMAT field. Use `#{@menu_name}` 
 
 In the table below, Param refers to display-menu parameters (see the tmux man page).
 
-Param |           variable           |               Default
-------|------------------------------|-----------------------------------
--T    | @menus_format_title          | "#[align=centre] #{@menu_name} "
--H    | @menus_simple_style_selected | default
--s    | @menus_simple_style          | default
--S    | @menus_simple_style_border   | default
+Param |           variable           |               Default              |  Sample configs
+------|------------------------------|------------------------------------|------------------
+-T    | @menus_format_title          | "'#[align=centre] #{@menu_name} '" | "'#{@menu_name}'"
+-H    | @menus_simple_style_selected | default                            | fg=blue,bg=yellow
+-s    | @menus_simple_style          | default                            | bg=red
+-S    | @menus_simple_style_border   | default                            | fg=green
 
 To maximize styling freedom, these variables are not wrapped in quotes, as tmux scripting has limitations that quickly exhaust available quotes.
+
+All quoting of spaces in the menu name etc., is up to the style creator.
+
 This could be more trouble than it's worth, so let me know if this method isn’t practical. On the upside, it should allow for maximum styling flexibility.
-All quoting of spaces, etc., is up to the style creator. For example, I prefer spaces around the title, so in this implementation, those spaces must be wrapped.
 
 Example:
 
@@ -49,7 +51,10 @@ home      |  <==  | @menus_nav_home
 
 ## Per menu overrides
 
-All these items support overrides on a per-menu level, for those who want full control over dynamic menus. If an override is defined in a menu, it will take precedence over the config variables.
+All these items support overrides on a per-menu level, for those who want full control over dynamic menus. 
+If an override is defined in a menu, it will take precedence over the config variables.
+
+This can also be used for dynamic themees, pull the current value into an override!
 
 override variable | tmux conf variable
 ------------------|-------------------
