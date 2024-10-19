@@ -51,7 +51,7 @@ home      |  <==  | @menus_nav_home
 
 ## Per menu overrides
 
-All these items support overrides on a per-menu level, for those who want full control over dynamic menus. 
+All these items support overrides on a per-menu level, for those who want full control over dynamic menus.
 If an override is defined in a menu, it will take precedence over the config variables.
 
 This can also be used for dynamic themees, pull the current value into an override!
@@ -66,7 +66,8 @@ override_next     | @menus_nav_next
 override_prev     | @menus_nav_prev
 override_home     | @menus_nav_home
 
-These overrides are ideal for testing themes and styles. By assigning overrides in a menu and saving it, you’ll invalidate the cache (if used), and the menu will be regenerated with the new style the next time it’s displayed.
+These overrides are ideal for testing themes and styles. By assigning overrides in a menu and saving it,
+you’ll invalidate the cache (if used), and the menu will be regenerated with the new style the next time it’s displayed.
 
 ![sample of dynamic changes using overrides](https://github.com/user-attachments/assets/8fdafd7a-e344-450b-b2fc-ec33996ce2c2)
 
