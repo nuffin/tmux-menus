@@ -137,7 +137,7 @@ tmux_get_option() {
     # dont use tmux_error_handler here
     if tgo_value="$($TMUX_BIN show-options -gv "$tgo_option" 2>/dev/null)"; then
         #
-        #  I havent figured out if it is my asdf builds that have issues
+        #  I haven't figured out if it is my asdf builds that have issues
         #  or something else, since I never heard of this issue before.
         #  On the other side, I dont think I have ever tried to assign ""
         #  to a user-option that has a non-empty default, so it might be
@@ -147,11 +147,11 @@ tmux_get_option() {
         #  report an error if show-options -gv is used on an undefined
         #  option starting with the char "@" as you should with
         #  user-options. For options starting with other chars,
-        #  the normal error is displayed also with theese versions.
+        #  the normal error is displayed also with these versions.
         #
         [ -z "$tgo_value" ] && ! tmux_is_option_defined "$tgo_option" && {
             #
-            #  This is a workarround, checking if the variable is defined
+            #  This is a workaround, checking if the variable is defined
             #  before assigning the default, preserving intentional
             #  "" assignments
             #

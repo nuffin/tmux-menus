@@ -64,8 +64,8 @@ handle_char() {
         else
             #
             #  On Linux, it seems checking str length the normal way
-            #  doesnt work for some chars, like §
-            #  This seems more resiliant
+            #  doesn't work for some chars, like §
+            #  This seems more resilient
             #
             # shellcheck disable=SC2308
             _check="$(expr length "$s_in")"
@@ -80,7 +80,7 @@ handle_char() {
 
 static_content() {
     #
-    #  It doesnt seem possible to reliably display an actual backtick in menus...
+    #  It doesn't seem possible to reliably display an actual backtick in menus...
     #  on some platforms it works, on others it breaks this menu
     #
     set -- \

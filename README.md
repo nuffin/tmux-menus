@@ -1,6 +1,6 @@
 # Tmux-Menus
 
-New featue - Styling of menus - Se [Styling](Styling.md)
+New feature - Styling of menus - Se [Styling](Styling.md)
 
 ![main](https://github.com/user-attachments/assets/2eede00c-ffee-4f86-9ebf-a07eaf34460c)
 
@@ -94,7 +94,7 @@ One gotcha is that in the Red Hat universe the package is not called whiptail, t
 
 MacOS does not come with whiptail, but it is available in Homebrew
 
-## Compatability
+## Compatibility
 
 Version | Notice
 -|-
@@ -229,9 +229,9 @@ those items are defines in `dynamic_content()` see
 the label changes between Zoom and Un-Zoom for the zooming action and
 mark/unmark for current pane.
 
-The plugin remmebers what tmux version you used last time.
+The plugin remembers what tmux version you used last time.
 If another version is detected as the plugin is initialized, the entire
-cache is dropped, so that the right version dependant items can be
+cache is dropped, so that the right version dependent items can be
 selected as the cache is re-populated.
 Same if a menu script is changed, if the script is newer than the cache,
 that cache item is regenerated.
@@ -279,7 +279,7 @@ tmux-menus ERROR: Screen might be too small
 
 It will also be displayed if the menu is closed right away intentionally
 or unintentionally, so there will no doubt sometimes be false positives.
-If it doesen't happen the next time the menu is attempted, it can be ignored.
+If it doesn't happen the next time the menu is attempted, it can be ignored.
 
 </details>
 <details>
@@ -302,7 +302,7 @@ This directly triggers that menu and displays any syntax errors on the
 command line.
 
 If `@menus_log_file` is defined, either in the tmux conf, or hardcoded
-in `scripts/helpers.sh` arround line 295, you can use logging like this:
+in `scripts/helpers.sh` around line 295, you can use logging like this:
 
 ```bash
 log_it "foo is now [$foo]"

@@ -77,7 +77,7 @@ while true; do
     #  Limit list size if screen is to small to handle entire list
     #
     if [ "$idx" -ge "$max_item" ]; then
-        log_it "cant display all"
+        log_it "can't display all"
         nav_add "Forward" F "$idx"
         break
     fi

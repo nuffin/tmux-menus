@@ -33,14 +33,14 @@ error_msg() {
     #  unless do_display_message is false
     #
     #  Using do_display_message is only practical for short one liners,
-    #  for longer error msgs, needing formating, use error_msg_formated()
+    #  for longer error msgs, needing formatting, use error_msg_formated()
     #  instead.
     #
     #  exit_code defaults to 0, which might seem odd for an error exit,
     #  but in combination with display-message it makes sense.
     #  If the script exits with something else than 0, the current pane
     #  will be temporary replaced by an error message mentioning the exit
-    #  code. Wich is both redundant and much less informative than the
+    #  code. Which is both redundant and much less informative than the
     #  display-message that is also printed.
     #  If display-message is not desired it would make sense to use a more
     #  normal positive exit_code to indicate error, making the 2 & 3
@@ -89,9 +89,9 @@ error_msg() {
 error_msg_formated() {
     #
     #  Display an error in its own frame, supporting longer messages
-    #  and also those formated with LFs
+    #  and also those formatted with LFs
     #
-    #  Cant use tmux_error_handler() or error_msg() here - it could lead to
+    #  Can't use tmux_error_handler() or error_msg() here - it could lead to
     #  recursion
     #
     emf_err="$1"
@@ -122,7 +122,7 @@ error_msg_formated() {
         echo "Scroll-mode: <prefix> ["
         echo "Press Ctrl-C to close this temporary window"
     )"
-    # posix way to wait forever - MacOS doesnt have: sleep infinity
+    # posix way to wait forever - MacOS doesn't have: sleep infinity
     $TMUX_BIN new-window -n "tmux-error" \
         "echo '$emf_msg' ; tail -f /dev/null "
     # fi
@@ -218,7 +218,7 @@ has_lf_not_at_end() {
 safe_now() {
     #
     #  MacOS date only display whole seconds, if gdate (GNU-date) is
-    #  installed, it can  display times with more precission
+    #  installed, it can  display times with more precision
     #
     if [ "$(uname)" = "Darwin" ]; then
         if [ -n "$(command -v gdate)" ]; then
@@ -227,7 +227,7 @@ safe_now() {
             date +%s
         fi
     else
-        #  On Linux the native date suports sub second precission
+        #  On Linux the native date supports sub second precision
         #  unless its the busybox date - only gives seconds...
         date +%s.%N
     fi
@@ -237,7 +237,7 @@ wait_to_close_display() {
     #
     #  When a menu item writes to stdout, unfortunately how to close
     #  the output window differs depending on dialog method used...
-    #  call this to display an apropriate suggestion, and in the
+    #  call this to display an appropriate suggestion, and in the
     #  whiptail case wait for that key
     #
     echo
@@ -300,7 +300,7 @@ log_interactive_to_stderr=false
 cfg_use_cache=false
 
 #
-#  Convencience shortcuts
+#  Convenience shortcuts
 #
 d_items="$D_TM_BASE_PATH"/items
 d_scripts="$D_TM_BASE_PATH"/scripts
@@ -330,7 +330,7 @@ if [ "$initialize_plugin" = "1" ]; then
     cache_update_params
     #
     #  at this point plugin_params are trusted if found, menus.tmux will
-    #  allways always replace it with current tmux conf during plugin init
+    #  always always replace it with current tmux conf during plugin init
     #
     #
     #  By printing a NL and date, its easier to keep separate runs apart
@@ -353,7 +353,7 @@ fi
 if [ "$FORCE_WHIPTAIL_MENUS" = 1 ]; then
     menu_reload="; $f_current_script"
     #
-    #  I havent been able do to menu reload with whiptail yet,
+    #  I haven't been able do to menu reload with whiptail yet,
     #  so disabled for now
     #
     # f_wt_reload_script="$d_tmp/${plugin_name}-reload-${tmux_pid}"

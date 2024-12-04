@@ -7,7 +7,7 @@
 #
 #  THIS DOES NOT WORK RIGHT NOW!
 #
-#  I havent had time to update it to use dynamic menus...
+#  I haven't had time to update it to use dynamic menus...
 #
 #   Live configuration. So far only menu location is available
 #

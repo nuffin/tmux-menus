@@ -17,7 +17,7 @@ static_content() {
 
     set -- "$@" \
         0.0 T "-#[nodim]Even if due to font or screen settings," \
-        0.0 T "-#[nodim]the symbol isnt visible, this should" \
+        0.0 T "-#[nodim]the symbol isn't visible, this should" \
         0.0 T "-#[nodim]still be able to paste it in."
 
     if [ "$FORCE_WHIPTAIL_MENUS" = 1 ]; then
@@ -27,7 +27,7 @@ static_content() {
             0.0 T "to paste directly into the pane." \
             0.0 T "Instead a tmux buffer is used." \
             0.0 T " " \
-            0.0 T "Plese note that this buffer might become" \
+            0.0 T "Please note that this buffer might become" \
             0.0 T "invalid if another menu is selected" \
             0.0 T "before pasting!" \
             0.0 T " " \

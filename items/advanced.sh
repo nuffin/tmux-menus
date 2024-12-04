@@ -45,14 +45,14 @@ static_content() {
     if [ "$FORCE_WHIPTAIL_MENUS" = 1 ]; then
         #
         #  The tmux output down to Customize options will be displayed
-        #  then disapear instantly since whiptail restarts the foreground
+        #  then disappear instantly since whiptail restarts the foreground
         #  app. Avoid this by not switching away to the fg app
         #
         set -- "$@" \
-            0.0 T "Most outputs for this dialog will disapear if this is run" \
+            0.0 T "Most outputs for this dialog will disappear if this is run" \
             0.0 T "with another app put into the background, since it will" \
             0.0 T "reapear as soon as this menu is closed." \
-            0.0 T "Recomended workarround is to run this from a pane" \
+            0.0 T "Recommended workaround is to run this from a pane" \
             0.0 T "with a prompt." \
             0.0 S
     fi

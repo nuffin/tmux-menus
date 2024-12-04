@@ -75,7 +75,7 @@ EOF
 
 cache_param_write() { # tmux stuff
     # log_it "cache_param_write()"
-    $cfg_use_cache || { # extra check preventing inapropriate writes
+    $cfg_use_cache || { # extra check preventing inappropriate writes
         error_msg "cache_param_write() - called when not using cache"
     }
 

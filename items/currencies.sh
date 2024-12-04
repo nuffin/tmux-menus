@@ -58,8 +58,8 @@ handle_char() {
         else
             #
             #  On Linux, it seems checking str length the normal way
-            #  doesnt work for some chars, like §
-            #  This seems more resiliant
+            #  doesn't work for some chars, like §
+            #  This seems more resilient
             #
             # shellcheck disable=SC2308
             _check="$(expr length "$s_in")"
@@ -70,7 +70,7 @@ handle_char() {
 }
 
 show_label() {
-    # Some Currency symbols cant be printed in whiptail
+    # Some Currency symbols can't be printed in whiptail
     if [ "$FORCE_WHIPTAIL_MENUS" = 1 ]; then
         case "$1" in
         ₺ | ₴ | ₽ | ₹)

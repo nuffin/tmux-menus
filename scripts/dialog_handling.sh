@@ -29,7 +29,7 @@ debug_print() {
     1) echo "$1" ;;
     2) log_it "$1" ;;
     *)
-        error_msg "$menu_debug state invalid [$menu_debug] shoule be 1 or 2! p1[$1]"
+        error_msg "$menu_debug state invalid [$menu_debug] should be 1 or 2! p1[$1]"
         ;;
     esac
 }
@@ -76,7 +76,7 @@ ensure_menu_fits_on_screen() {
     #  would do.
     #
 
-    # Display time meny was shown
+    # Display time menu was shown
     disp_time="$(echo "$(safe_now) - $dh_t_start" | bc)"
     # log_it "Menu $current_script_no_ext - Display time:  $disp_time"
 
@@ -384,11 +384,11 @@ menu_parse() {
             #  If no / is found in the script param, it will be prefixed with
             #  $d_scripts
             #  This means that if you give full path to something in this
-            #  param, all scriptd needs to have full path pre-pended.
+            #  param, all scriptd needs to have full path prepended.
             #  For example help menus, which takes the full path to the
             #  current script, in order to be able to go back.
             #  For the normal case a name pointing to a script in the same
-            #  dir as the current, this will be pre-pended automatically.
+            #  dir as the current, this will be prepended automatically.
             #
             key="$1"
             shift
@@ -692,7 +692,7 @@ fi
 
 ! tmux_vers_check 3.0 && FORCE_WHIPTAIL_MENUS=1
 
-# not working right now, so disabeling
+# not working right now, so disabling
 # [ "$FORCE_WHIPTAIL_MENUS" = 1 ] && {
 #     if [ -f "$f_wt_reload_script" ]; then
 #         #
@@ -704,7 +704,7 @@ fi
 #         log_it "[$$]-----   Found reload script - deleting it"
 #         rm -f "$f_wt_reload_script"
 #     else
-#         log_it "><>[$$]-----   no wt_reload_script found at start fo dialog_handling"
+#         log_it "><>[$$]-----   no wt_reload_script found at start for dialog_handling"
 #     fi
 # }
 
@@ -736,11 +736,11 @@ handle_menu
 #     log_it "><> $current_script - dialog_handling - before wt_reload [$e]"
 # fi
 
-# not working right now, so disabeling
+# not working right now, so disabling
 # [ "$FORCE_WHIPTAIL_MENUS" = 1 ] && {
 #     if [ -f "$f_wt_reload_script" ]; then
 #         #
-#         #  in whiptail run-shell cant chain to another menu, so instead
+#         #  in whiptail run-shell can't chain to another menu, so instead
 #         #  reload script is written to a tmp file, and if it is found
 #         #  it will be exeuted
 #         #

@@ -25,7 +25,7 @@ static_content() {
             0.0 T "to paste directly into the pane." \
             0.0 T "Instead a tmux buffer is used." \
             0.0 T " " \
-            0.0 T "Plese note that this buffer might become" \
+            0.0 T "Please note that this buffer might become" \
             0.0 T "invalid if another menu is selected" \
             0.0 T "before pasting!" \
             0.0 T " " \
